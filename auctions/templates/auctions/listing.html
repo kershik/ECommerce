@@ -1,0 +1,78 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h1 class="lst_title">{{ listing.title }}</h1>
+    {% if user.is_authenticated %}
+        {% if user not in watch_users %}
+                <form action="{% url 'listing' listing.id %}" method="POST" style="display: inline-block;">
+                    {% csrf_token %}
+                    <input type="submit" name='add_watchlist' value="Add to Watchlist" class="watchlist-add">
+                </form>
+        {% else %}
+            <form action="{% url 'listing' listing.id %}" method="POST" style="display: inline-block;">
+                <text class="watchlist-marker">Watchlist</text>
+                {% csrf_token %}
+                <input type="submit" name='remove_watchlist' value="Remove" class="watchlist-remove">
+            </form>
+        {% endif %}
+    {% endif %}
+
+    {% if listing.photo %}
+        <div><img src="{{ listing.photo.url }}" alt="listing photo" height='400'/></div>
+    {% endif %}
+    <div class="description">{{ listing.description }}</div>
+    <h class="price">${{ listing.current_price }}</h>
+    
+    {{ bids_count }} bid(s) so far.
+    {% if user.is_authenticated %}
+        {% if user == current_user %}
+            Your bid is the current bid.
+        {% endif %}
+    
+        <form action="{% url 'listing' listing.id %}" method='POST'>
+            {% csrf_token %}
+            {{ bid_form }}
+            <input type="submit" name='newbid' value="Place Bid" class="bid">
+        </form>
+        {% if message %}
+            {{ message }} 
+        {% endif %}
+
+        {% if user == listing.creator %}
+            <form action="{% url 'listing' listing.id %}" method="POST">
+                {% csrf_token %}
+                <input class="close" type="submit" name='close' value="CLOSE LISTING">
+            </form>
+        {% endif %}
+    {% else %}
+        <a href="{% url 'login' %}">Log in</a> to place your bid.
+    {% endif %}
+    
+    <ul>
+    <strong>Details:</strong>
+        <li>Listed by: {{ listing.creator.username }}</li>
+        {% if listing.category %}
+            <li>Category: {{ listing.category.name }}</li>
+        {% else %}
+            <li>Category: No category listed</li>
+        {% endif %}
+    </ul>
+
+    <h4>Comments</h4>
+    {% if user.is_authenticated %}
+        <form action="{% url 'listing' listing.id %}" method='POST'>
+            {% csrf_token %}
+            {{ comment_form }}
+            <input type="submit" name='newcomment' value="Comment" class="comment-add">
+        </form>
+    {% endif %}
+
+    {% for comment in comments %}
+        <div>
+            <strong>{{ comment.user.username }}</strong>: {{ comment.text }}
+        </div>
+    {% empty %}
+    There are no comments yet.
+    {% endfor %}
+
+{% endblock %} 

@@ -1,0 +1,129 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 10px;
+}
+
+div.lst {
+    height: 200px; 
+    width: 100%;
+    border: 0.7px solid #59515e; 
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+div.lst_img {
+    height: 180px;
+    width: 300px;
+    float: left;
+    margin-right: 10px;
+}
+
+div.description {
+    margin: 5px;
+    font-family: "Gill Sans", sans-serif;
+    font-size: 20px;
+}
+
+h.price {
+    margin: 5px;
+    font-family: "Gill Sans", sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    background-color: #f9e076;
+    border-radius: 10px;
+    border: none;
+    padding: 5px;
+}
+
+h1.lst_title {
+    font-family: "Gill Sans", sans-serif;
+    font-size: 50px;
+    display: inline;
+}
+
+img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+a.title {
+    color: #232023;
+    /* font-family: "Gill Sans", sans-serif;  */
+    font-weight: bold; 
+    font-size: 22px;
+}
+
+.comment {
+    width: 400px;
+    padding: 5px;
+    margin: 5px;
+    border: 1px dashed #B4B1B0;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.comment-add {
+    background-color: #aaae76;
+    border: none;
+    color: white;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    font-family: "Gill Sans", sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.watchlist-add {
+    background-color: sandybrown;
+    color: whitesmoke;
+    font-family: "Gill Sans", sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.watchlist-remove {
+    color: sandybrown;
+    background-color: whitesmoke;
+    font-family: "Gill Sans", sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 5px;
+    padding: 5px;
+}
+
+.watchlist-marker {
+    background-color: rgb(136, 136, 136);
+    color: whitesmoke;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    border-radius: 3px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.bid {
+    background-color: #6693f5;
+    color: white;
+    text-align: center;
+    font-family: "Gill Sans", sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 5px;
+}

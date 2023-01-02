@@ -1,0 +1,8 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2> {{ message }} </h2>
+    {% if user == win %}
+        Hey there, you won this item! Congratulations!
+    {% endif %}
+{% endblock %}
