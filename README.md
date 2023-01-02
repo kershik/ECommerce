@@ -26,3 +26,8 @@ python manage.py makemigrations auctions
 ```
 python manage.py migrate
 ```
+3. Run server.
+
+```
+python manage.py runserver
+```
